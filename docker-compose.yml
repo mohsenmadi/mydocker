@@ -9,6 +9,14 @@ services:
     stdin_open: true
     tty: true
 
+  frontend_ng:
+    build: ./frontend-ng
+    container_name: realworld-docker-frontend-ng
+    ports:
+      - 3003:3003
+    restart: unless-stopped
+    command: npm run start
+
   api:
     build: ./api
     container_name: realworld-docker-api
